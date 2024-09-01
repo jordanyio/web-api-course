@@ -1,6 +1,6 @@
 # .NET 8 WebAPI Backend Server Tutorial Series
 
-Welcome to the repository for my **YouTube tutorial series** on building backend servers with **.NET 8 WebAPI**! This series is designed to guide you through the process of building robust, scalable backend services, with each lesson progressively adding new layers of complexity and quality. The project uses **Docker** for local development, integrates with **PostgreSQL** via **Entity Framework Core (EF Core)**, and follows an **NLayer architecture**—ideal for small servers supporting SPA apps or microservices. Please note, that this was built to be used as the server for my youtube tutorial series on building a UI with React js, and Vue js. Where both of those projects depend on this server.
+Welcome to the repository for my **YouTube tutorial series** on building backend servers with **.NET 8 WebAPI**! This series is designed to guide you through the process of building robust, scalable backend services, with each lesson progressively adding new layers of complexity and quality. The project uses **Docker** for local development, integrates with **PostgreSQL** via **Entity Framework Core (EF Core)**, and follows an **NLayer architecture**—ideal for small servers supporting SPA apps or microservices. Please note, there is another set of tutorials where we create UI's with React and Vue js, and make use of this server in a production read fullstack application.
 
 ## Intended Use
 
