@@ -1,32 +1,39 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OnlineStore.Application;
-using OnlineStore.Models;
+﻿using OnlineStore.Models;
 
 namespace OnlineStore.Data
 {
-    public interface IStoreRespository
+    public class StoreRepository
     {
-        Task<IEnumerable<Item>> GetStoreInventory();
-        Task AddItemAsync(Item item);
-    }
-
-    internal class StoreRepository : IStoreRespository
-    {
-        private readonly StoreDbContext _dbContext;
-
-        public StoreRepository(StoreDbContext dbContext)
+        public List<Item> GetItems()
         {
-            _dbContext = dbContext;
-        }
-        public async Task<IEnumerable<Item>> GetStoreInventory()
-        {
-            return await _dbContext.Items.ToListAsync();
-        }
+            var item1 = new Item
+            {
+                Id = 1,
+                Name = "Running Shoe",
+                Description = "Mens Running Shoe.",
+                InventoryCount = 10,
+                Color = "Black and White."
+            };
 
-        public async Task AddItemAsync(Item item)
-        {
-            await _dbContext.AddAsync(item);
-            await _dbContext.SaveChangesAsync();
+            var item2 = new Item
+            {
+                Id = 2,
+                Name = "Hoodie",
+                Description = "Very soft unisex hoodie.",
+                InventoryCount = 507,
+                Color = "Blue"
+            };
+
+            var item3 = new Item
+            {
+                Id = 3,
+                Name = "Hockey Stick",
+                Description = "Rebok O stick.",
+                InventoryCount = 14,
+                Color = "Black"
+            };
+
+            return [item1, item2, item3];
         }
     }
 }
