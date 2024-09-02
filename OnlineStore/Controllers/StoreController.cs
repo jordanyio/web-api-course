@@ -8,9 +8,9 @@ namespace OnlineStore.Controllers
     [Route("[controller]")]
     public class StoreController : ControllerBase
     {
-        private readonly IStoreRespository _onlineStoreRespository;
+        private readonly IStoreRepository _onlineStoreRespository;
 
-        public StoreController(IStoreRespository onlineStoreRespository)
+        public StoreController(IStoreRepository onlineStoreRespository)
         {
             _onlineStoreRespository = onlineStoreRespository;
         }
@@ -21,6 +21,22 @@ namespace OnlineStore.Controllers
             var inventory = await _onlineStoreRespository.GetStoreInventory();
 
             return Ok(inventory);
+        }
+
+        [HttpGet("GetItemsBySearchState")]
+        public async Task<IActionResult> Get([FromBody] SearchState search)
+        {
+            var inventory = await _onlineStoreRespository.GetStoreInventory();
+
+            return Ok(inventory);
+        }
+
+        [HttpGet("GetItemById")]
+        public async Task<IActionResult> Get([FromBody] int id)
+        {
+            var item = await _onlineStoreRespository.GetItemById(id);
+
+            return Ok(item);
         }
 
         [HttpPost("CreateItem")]

@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using OnlineStore.Application;
 using OnlineStore.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IStoreRespository, StoreRepository>();
+builder.Services.AddScoped<IStoreRepository, StoreRepository>();
 
 builder.Services.AddDbContext<StoreDbContext>(options =>
 options.UseNpgsql("Host=postgres;Database=mydb;Username=myuser;Password=mypassword"));
